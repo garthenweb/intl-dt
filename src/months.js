@@ -1,11 +1,11 @@
-const formatter = require('./formatter');
+import formatter from './formatter';
 
 const formats = {
   short: 'MMM',
   long: 'MMMM'
 };
 
-module.exports = (local, type = 'long') => {
+export default (local, type = 'long') => {
   const months = [];
   while (months.length !== 12) {
     months.push(formatter(new Date(2000, months.length), formats[type], local));

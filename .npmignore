@@ -1,3 +1,6 @@
 src/
 tests/
 .nyc_output/
+.travis.yml
+.eslintrc.json
+.editorconfig

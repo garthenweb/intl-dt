@@ -17,7 +17,7 @@ const splitDayPerid = str => (
 // words with 1 to 4 chars
 const formatRegExp = /\b\w\w{0,3}\b/g;
 
-module.exports = function formatter(date, template, local) {
+export default function formatter(date, template, local) {
   return String(template).replace(formatRegExp, function(part) {
     switch(part) {
       case 'YY':

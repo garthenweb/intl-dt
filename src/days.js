@@ -1,11 +1,11 @@
-const formatter = require('./formatter');
+import formatter from './formatter';
 
 const formats = {
   short: 'ddd',
   long: 'dddd'
 };
 
-module.exports = (local, type = 'long') => {
+export default (local, type = 'long') => {
   const days = [];
   while (days.length !== 7) {
     // the 1. October 2012 on Monday...

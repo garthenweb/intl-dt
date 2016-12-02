@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "travis-coverage": "nyc report --reporter=text-lcov | coveralls",
     "coverage": "tap --cov --coverage-report=lcov tests/*.test.js",
