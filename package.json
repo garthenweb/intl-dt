@@ -1,7 +1,7 @@
 {
-  "name": "intl-dt-format",
+  "name": "intl-dt",
   "version": "0.0.0",
-  "description": "",
+  "description": "Light date time library based on the ECMA-402 Internationalization API",
   "main": "index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
