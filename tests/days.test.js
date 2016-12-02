@@ -1,8 +1,8 @@
 const test = require('tap').test;
-const intlDays = require('../src/days');
+const intlDT = require('../index');
 
 test('get days in long words', (t) => {
-  t.same(intlDays('en'), [
+  t.same(intlDT.days('en'), [
     'Monday',
     'Tuesday',
     'Wednesday',
@@ -15,7 +15,7 @@ test('get days in long words', (t) => {
 });
 
 test('get days in short words', (t) => {
-  t.same(intlDays('en', 'short'), [
+  t.same(intlDT.days('en', 'short'), [
     'Mon',
     'Tue',
     'Wed',

@@ -1,8 +1,8 @@
 const test = require('tap').test;
-const intlMonths = require('../src/months');
+const intlDT = require('../index');
 
 test('get months in long words', (t) => {
-  t.same(intlMonths('en'), [
+  t.same(intlDT.months('en'), [
     'January',
     'February',
     'March',
@@ -20,7 +20,7 @@ test('get months in long words', (t) => {
 });
 
 test('get months in short words', (t) => {
-  t.same(intlMonths('en', 'short'), [
+  t.same(intlDT.months('en', 'short'), [
     'Jan',
     'Feb',
     'Mar',
