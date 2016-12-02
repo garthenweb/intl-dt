@@ -1,6 +1,6 @@
 {
   "name": "intl-dt-format",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "pretest": "npm run compile",
     "test": "npm run tap:all",
     "test:babel": "babel tests/*.test.js -d . && npm test",
-    "lint": "eslint index.js tests/**.js",
+    "lint": "eslint index.js src/**.js tests/**.js",
     "compile": "babel -s -d lib/ src/",
     "publish": "npm run compile && npm run tap:all",
     "preversion": "npm run compile && npm run tap:all",

@@ -1,5 +1,5 @@
 const test = require('tap').test;
-const intlDTFormat = require('../index');
+const intlDTFormat = require('../src/formatter');
 
 const testDate = new Date(2010, 0, 9, 8, 7, 6);
 
