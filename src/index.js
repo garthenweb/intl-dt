@@ -28,7 +28,7 @@ const getFormatArgs = (globalArgs, localArgs) => {
   return args;
 };
 
-const createIntlDT = (...globalArgs) => {
+const intlDTFactory = (...globalArgs) => {
   const [globalLocal] = sortGlobalArgs(globalArgs);
   return {
     format: (...args) =>  format(...getFormatArgs(globalArgs, args)),
@@ -40,4 +40,4 @@ const createIntlDT = (...globalArgs) => {
 export { default as format } from './formatter';
 export { default as months } from './months';
 export { default as days } from './days';
-export default createIntlDT;
+export default intlDTFactory;

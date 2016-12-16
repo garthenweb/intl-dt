@@ -1,5 +1,5 @@
-const getLocal = (date, local, options) => (
-  new Intl.DateTimeFormat(local, options).format(date)
+const getLocal = (date, locales, options) => (
+  new Intl.DateTimeFormat(locales, options).format(date)
 );
 const get = (date, getter) => (
   date[`get${getter[0].toUpperCase()}${getter.substring(1)}`]()
@@ -17,7 +17,7 @@ const splitDayPerid = str => (
 // words with 1 to 4 chars
 const formatRegExp = /\b\w\w{0,3}\b/g;
 
-export default function formatter(date, template, local) {
+export default function formatter(date, template, locales) {
   return String(template).replace(formatRegExp, function(part) {
     switch(part) {
       case 'YY':
@@ -30,9 +30,9 @@ export default function formatter(date, template, local) {
       case 'MM':
         return pad2Digits(get(date, 'month') + 1);
       case 'MMM':
-        return getLocal(date, local, { month: 'short' });
+        return getLocal(date, locales, { month: 'short' });
       case 'MMMM':
-        return getLocal(date, local, { month: 'long' });
+        return getLocal(date, locales, { month: 'long' });
       case 'Q':
         return Math.floor(get(date, 'month') / 3) + 1;
       case 'D':
@@ -40,20 +40,20 @@ export default function formatter(date, template, local) {
       case 'DD':
         return pad2Digits(get(date, 'date'));
       case 'ddd':
-        return getLocal(date, local, { weekday: 'short' });
+        return getLocal(date, locales, { weekday: 'short' });
       case 'dddd':
-        return getLocal(date, local, { weekday: 'long' });
+        return getLocal(date, locales, { weekday: 'long' });
       case 'H':
         return String(get(date, 'hours'));
       case 'HH':
         return pad2Digits(get(date, 'hours'));
       case 'h':
-        return splitDayPerid(getLocal(date, local, { hour: 'numeric', hour12: true }));
+        return splitDayPerid(getLocal(date, locales, { hour: 'numeric', hour12: true }));
       case 'hh':
-        return pad2Digits(splitDayPerid(getLocal(date, local, { hour: 'numeric', hour12: true })));
+        return pad2Digits(splitDayPerid(getLocal(date, locales, { hour: 'numeric', hour12: true })));
       case 'a':
       case 'A':
-        return getDayPeriod(getLocal(date, local, { hour: 'numeric', hour12: true }));
+        return getDayPeriod(getLocal(date, locales, { hour: 'numeric', hour12: true }));
       case 'm':
         return String(get(date, 'minutes'));
       case 'mm':
@@ -66,4 +66,4 @@ export default function formatter(date, template, local) {
         return part;
     }
   });
-};
+}
