@@ -1,38 +1,13 @@
 const test = require('tap').test;
+const fixtures = require('./fixtures');
 const intlDT = require('../index');
 
 test('get months in long words', (t) => {
-  t.same(intlDT.months('en'), [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]);
+  t.same(intlDT.months('en'), fixtures.en.monthsLong);
   t.end();
 });
 
 test('get months in short words', (t) => {
-  t.same(intlDT.months('en', 'short'), [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec'
-  ]);
+  t.same(intlDT.months('en', 'short'), fixtures.en.monthsShort);
   t.end();
 });
